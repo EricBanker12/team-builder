@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './App.css'
 
 import Form from './components/Form'
+import Member from './components/Member'
 
 function App() {
 
@@ -14,7 +15,9 @@ function App() {
     return (
         <div className="App">
             <Form addTeamMember={addTeamMember} />
-            team members
+            <div>
+                {teamMembers.map((e,i)=><Member key={i} data={e} />)}
+            </div>
         </div>
     )
 }
