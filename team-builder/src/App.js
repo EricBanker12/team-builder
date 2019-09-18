@@ -12,11 +12,15 @@ function App() {
         setTeamMembers([...teamMembers, member])
     }
 
+    function editTeamMember(member) {
+        // to do
+    }
+
     return (
         <div className="App">
             <Form addTeamMember={addTeamMember} />
             <div>
-                {teamMembers.map((e,i)=><Member key={i} data={e} />)}
+                {teamMembers.map((e,i)=><Member key={i} data={e} editTeamMember={editTeamMember} />)}
             </div>
         </div>
     )
