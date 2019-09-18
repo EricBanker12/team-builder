@@ -1,19 +1,27 @@
 import React, { useState } from 'react'
 
-function Form() {
+const initFormInput = {
+    name: '',
+    email: '',
+    role: ''
+}
 
-    const [formInput, setFormInput] = useState({
-        name: '',
-        email: '',
-        role: ''
-    })
+function Form(props) {
+
+    const [formInput, setFormInput] = useState(initFormInput)
 
     function inputHandler(e) {
         setFormInput({...formInput, [e.target.name]: e.target.value})
     }
 
+    function submitHandler(e) {
+        e.preventDefault()
+        props.addTeamMember(formInput)
+        setFormInput(initFormInput)
+    }
+
     return (
-        <form>
+        <form onSubmit={submitHandler}>
             <label>
                 Name: 
                 <input type='text' name='name' onChange={inputHandler} value={formInput.name} />

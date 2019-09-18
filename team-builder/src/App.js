@@ -7,9 +7,13 @@ function App() {
 
     const [teamMembers, setTeamMembers] = useState([])
 
+    function addTeamMember(member) {
+        setTeamMembers([...teamMembers, member])
+    }
+
     return (
         <div className="App">
-            <Form />
+            <Form addTeamMember={addTeamMember} />
             team members
         </div>
     )
