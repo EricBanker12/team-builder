@@ -14,20 +14,16 @@ function App() {
             const members = [...teamMembers]
             members[members.indexOf(memberToEdit)] = member
             setTeamMembers(members)
-            editTeamMember() // remove memberToEdit
+            setMemberToEdit() // remove memberToEdit
         }
         else setTeamMembers([...teamMembers, member])
-    }
-
-    function editTeamMember(member) {
-        setMemberToEdit(member)
     }
 
     return (
         <div className="App">
             <Form addTeamMember={addTeamMember} memberToEdit={memberToEdit}/>
             <div>
-                {teamMembers.map((e,i)=><Member key={i} data={e} editTeamMember={editTeamMember} />)}
+                {teamMembers.map((e,i)=><Member key={i} data={e} editTeamMember={setMemberToEdit} />)}
             </div>
         </div>
     )
