@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 const initFormInput = {
     name: '',
@@ -10,12 +10,17 @@ function Form(props) {
 
     const [formInput, setFormInput] = useState(initFormInput)
 
+    useEffect(()=>{
+        if (props.memberToEdit) setFormInput(props.memberToEdit)
+    },[props])
+
     function inputHandler(e) {
         setFormInput({...formInput, [e.target.name]: e.target.value})
     }
 
     function submitHandler(e) {
         e.preventDefault()
+        props.editTeamMember() // remove memberToEdit
         props.addTeamMember(formInput)
         setFormInput(initFormInput)
     }
