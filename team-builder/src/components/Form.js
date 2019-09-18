@@ -24,6 +24,12 @@ function Form(props) {
         setFormInput(initFormInput)
     }
 
+    function cancelHandler(e) {
+        e.preventDefault()
+        props.editTeamMember() // remove memberToEdit
+        setFormInput(initFormInput)
+    }
+
     return (
         <form onSubmit={submitHandler}>
             <label>
@@ -39,6 +45,7 @@ function Form(props) {
                 <input type='text' name='role' onChange={inputHandler} value={formInput.role} />
             </label>
             <input type='submit' />
+            <button onClick={cancelHandler}>Cancel</button>
         </form>
     )
 }

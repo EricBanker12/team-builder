@@ -21,7 +21,7 @@ function App() {
 
     return (
         <div className="App">
-            <Form addTeamMember={addTeamMember} memberToEdit={memberToEdit}/>
+            <Form addTeamMember={addTeamMember} editTeamMember={setMemberToEdit} memberToEdit={memberToEdit} />
             <div>
                 {teamMembers.map((e,i)=><Member key={i} data={e} editTeamMember={setMemberToEdit} />)}
             </div>
