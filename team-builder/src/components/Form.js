@@ -8,11 +8,24 @@ function Form() {
         role: ''
     })
 
+    function inputHandler(e) {
+        setFormInput({...formInput, [e.target.name]: e.target.value})
+    }
+
     return (
         <form>
-            <label>Name: <input type='text' /></label>
-            <label>Email: <input type='email' /></label>
-            <label>Role: <input type='text' /></label>
+            <label>
+                Name: 
+                <input type='text' name='name' onChange={inputHandler} value={formInput.name} />
+            </label>
+            <label>
+                Email: 
+                <input type='email' name='email' onChange={inputHandler} value={formInput.email} />
+            </label>
+            <label>
+                Role: 
+                <input type='text' name='role' onChange={inputHandler} value={formInput.role} />
+            </label>
             <input type='submit' />
         </form>
     )
