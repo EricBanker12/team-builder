@@ -20,7 +20,6 @@ function Form(props) {
 
     function submitHandler(e) {
         e.preventDefault()
-        props.editTeamMember() // remove memberToEdit
         props.addTeamMember(formInput)
         setFormInput(initFormInput)
     }
